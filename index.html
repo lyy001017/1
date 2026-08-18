@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>暖芯智热 · NX-3000 智能家居控制中心</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="control-shell app-shell">
+    <aside class="side-rail sidebar">
+      <div class="brand-block">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M26.3 3.5c2.3 7.2 11.5 11.9 11.5 21.2 0 8.4-6.3 15.1-14.3 15.1S9.2 33.5 9.2 25.4c0-6.8 4.2-12.5 10.2-17.2-.8 5.8 1.8 9.5 5 11.4-.2-5.9 2.2-11.3 1.9-16.1Z"/>
+            <path class="inner" d="M24.2 22.4c4.1 3.5 6.2 7 6.2 10.6 0 4.3-3.2 7.4-7.3 7.4s-7.2-3.1-7.2-7.1c0-4 3.1-7.7 8.3-10.9Z"/>
+          </svg>
+        </div>
+        <div>
+          <strong>暖芯智热</strong>
+          <span>智能家居控制中心</span>
+        </div>
+      </div>
+
+      <div class="terminal-chip">
+        <span class="pulse-dot"></span>
+        <div><strong>NX-3000</strong><small>智能采暖终端</small></div>
+      </div>
+
+      <nav class="rail-nav" aria-label="页面导航">
+        <button class="nav-item active" data-page="home" data-nav="overview">
+          <span class="rail-icon">⌂</span><span>首页</span>
+        </button>
+        <button class="nav-item" data-page="living">
+          <span class="rail-icon">◉</span><span>客厅</span>
+        </button>
+        <button class="nav-item" data-page="bedroom">
+          <span class="rail-icon">▣</span><span>卧室</span>
+        </button>
+        <button class="nav-item" data-page="kitchen">
+          <span class="rail-icon">◇</span><span>厨房</span>
+        </button>
+        <button class="nav-item" data-page="security">
+          <span class="rail-icon">✓</span><span>安防</span>
+        </button>
+        <button class="nav-item" data-page="settings">
+          <span class="rail-icon">⚙</span><span>设置</span>
+        </button>
+      </nav>
+
+      <div class="rail-footer">
+        <div class="rail-health"><span></span><div><strong>系统正常</strong><small>网络在线</small></div></div>
+        <div class="demo-tag">展示原型 · 模拟数据</div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="status-bar topbar">
+        <div class="status-title">
+          <strong>智能家居控制中心</strong>
+          <span id="current-date">2026-08-18</span><span>周二</span><span id="current-time">19:25</span>
+        </div>
+        <div class="status-cluster">
+          <div class="status-chip"><span class="status-dot green"></span><div><small>系统状态</small><strong>系统正常</strong></div></div>
+          <div class="status-chip"><span class="signal-bars">▥</span><div><small>通信状态</small><strong>网络正常</strong></div></div>
+          <div class="status-chip"><div><small>在线设备</small><strong>6 / 6</strong></div></div>
+          <div class="status-chip"><div><small>运行设备</small><strong>4</strong></div></div>
+        </div>
+      </header>
+
+      <section class="page-view active" id="home-page" data-view="home">
+        <div class="page-heading">
+          <div><p>HOME OVERVIEW</p><h1>全屋采暖总览</h1></div>
+          <div class="status-pill online"><span></span>NX-3000 在线</div>
+        </div>
+
+        <div class="hero-grid dashboard-grid">
+          <article class="panel-card card temperature-panel" id="room-temperature">
+            <div class="panel-title-row">
+              <div><h2>环境温度</h2><p>客厅 / 卧室 / 厨房监测</p></div>
+              <span class="tiny-status">自动更新</span>
+            </div>
+            <div class="temperature-layout">
+              <div class="temperature-dial temperature-ring" id="temperature-gauge">
+                <svg viewBox="0 0 220 190" aria-hidden="true">
+                  <path class="dial-track" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/>
+                  <path class="dial-progress" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/>
+                </svg>
+                <div class="dial-center"><strong>24.0<span>℃</span></strong><small>当前温度</small></div>
+              </div>
+              <div class="room-readings">
+                <div class="reading blue"><span>客厅</span><strong>24.6℃</strong></div>
+                <div class="reading indigo"><span>卧室</span><strong>23.1℃</strong></div>
+                <div class="reading orange"><span>厨房</span><strong>26.3℃</strong></div>
+                <div class="reading teal"><span>湿度</span><strong>48%</strong></div>
+                <div class="reading air"><span>空气</span><strong>优</strong></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel-card card scene-panel" id="scene-mode">
+            <div class="panel-title-row"><div><h2>场景模式</h2><p>全屋采暖运行策略</p></div></div>
+            <div class="scene-grid" id="mode-selector">
+              <button class="scene-btn mode-btn active" data-mode="回家"><span>⌂</span><strong>回家</strong><small>舒适恒温</small></button>
+              <button class="scene-btn mode-btn" data-mode="离家"><span>↗</span><strong>离家</strong><small>低温节能</small></button>
+              <button class="scene-btn mode-btn" data-mode="会客"><span>◌</span><strong>会客</strong><small>快速升温</small></button>
+              <button class="scene-btn mode-btn" data-mode="睡眠"><span>☾</span><strong>睡眠</strong><small>静音保温</small></button>
+            </div>
+            <div class="load-line"><div><span>当前负载</span><strong>63%</strong></div><div class="progress"><i style="width:63%"></i></div></div>
+          </article>
+
+          <article class="panel-card card safety-overview safety-card" id="security-overview">
+            <div class="panel-title-row"><div><h2>安全监控</h2><p>保护链路实时状态</p></div><span class="safe-label">安全</span></div>
+            <div class="safety-mini-list">
+              <div><span class="check-dot">✓</span><strong>漏电保护</strong><em>正常</em></div>
+              <div><span class="check-dot">✓</span><strong>过流保护</strong><em>正常</em></div>
+              <div><span class="check-dot">✓</span><strong>过温保护</strong><em>正常</em></div>
+              <div><span class="check-dot">✓</span><strong>低流量保护</strong><em>正常</em></div>
+            </div>
+            <div class="safety-footer"><span>最近告警</span><strong>暂无异常</strong></div>
+          </article>
+        </div>
+
+        <div class="lower-grid">
+          <article class="panel-card card device-board" id="heating-status">
+            <div class="panel-title-row">
+              <div><h2>设备总览</h2><p>采暖核心设备与水路状态</p></div>
+              <div class="board-tabs"><button class="active">采暖</button><button>水路</button><button>通信</button></div>
+            </div>
+            <div class="device-grid" id="heating-loop">
+              <div class="device-card heat active-device">
+                <div class="device-icon">≈</div><div><span>热</span><strong>感应加热</strong><small>NX-3000 · 正在运行</small></div><em>2.35 kW</em>
+              </div>
+              <div class="device-card pump active-device">
+                <div class="device-icon">↻</div><div><span>泵</span><strong>循环泵</strong><small>闭式循环 · 稳定运行</small></div><em>68%</em>
+              </div>
+              <div class="device-card water-hot">
+                <div class="device-icon">↑</div><div><span>供</span><strong>供水温度</strong><small>目标 45—55℃</small></div><em>48.6℃</em>
+              </div>
+              <div class="device-card water-return">
+                <div class="device-icon">↓</div><div><span>回</span><strong>回水温度</strong><small>供回水温差 9.4℃</small></div><em>39.2℃</em>
+              </div>
+              <div class="device-card terminal">
+                <div class="device-icon">▥</div><div><span>末</span><strong>采暖末端</strong><small>暖气片 / 地暖</small></div><em>运行</em>
+              </div>
+              <div class="device-card comm">
+                <div class="device-icon">⌁</div><div><span>联</span><strong>通信模块</strong><small>WiFi / 星闪</small></div><em>在线</em>
+              </div>
+            </div>
+            <div class="heating-route">
+              <span>补水</span><i>→</i><span>循环</span><i>→</i><span class="hot-route">管段直热</span><i>→</i><span>末端散热</span><i>→</i><span>回水</span>
+            </div>
+          </article>
+
+          <article class="panel-card card energy-overview metric-card" id="energy-overview">
+            <div class="panel-title-row"><div><h2>用水用电</h2><p>今日状态统计</p></div><span class="tiny-status">水质 优</span></div>
+            <div class="energy-stack">
+              <div class="energy-stat"><div><span>用电状态</span><strong>负载稳定</strong></div><em>63%</em></div>
+              <div class="mini-progress electric"><i style="width:63%"></i></div>
+              <div class="energy-stat"><div><span>今日用电</span><strong>18.6 kWh</strong></div><em>节能运行</em></div>
+              <div class="energy-stat"><div><span>循环用水</span><strong>128 L</strong></div><em>闭式回路</em></div>
+              <div class="energy-stat"><div><span>今日运行</span><strong>7 h 26 min</strong></div><em>恒温 71%</em></div>
+            </div>
+            <div class="energy-spark" id="energy-chart">
+              <svg viewBox="0 0 320 76" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f8fff" stop-opacity=".3"/><stop offset="1" stop-color="#2f8fff" stop-opacity="0"/></linearGradient></defs>
+                <path class="spark-area" d="M0 62 L30 59 L60 50 L90 52 L120 35 L150 39 L180 25 L210 31 L240 18 L270 28 L300 23 L320 28 L320 76 L0 76 Z"/>
+                <path class="spark-line" d="M0 62 L30 59 L60 50 L90 52 L120 35 L150 39 L180 25 L210 31 L240 18 L270 28 L300 23 L320 28"/>
+              </svg>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-view room-page" data-view="living" data-room="客厅">
+        <div class="page-heading"><div><p>ROOM CONTROL</p><h1>客厅采暖</h1></div><div class="status-pill online"><span></span>已运行</div></div>
+        <div class="room-layout">
+          <article class="panel-card room-main-card">
+            <div class="panel-title-row"><div><h2>客厅温度</h2><p>采暖末端监测</p></div></div>
+            <div class="room-dial-wrap">
+              <div class="temperature-dial compact"><svg viewBox="0 0 220 190"><path class="dial-track" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/><path class="dial-progress" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/></svg><div class="dial-center"><strong>24.6<span>℃</span></strong><small>当前温度</small></div></div>
+              <div class="target-control"><span>目标温度</span><div><button>−</button><strong>24.0℃</strong><button>＋</button></div><small>演示界面 · 不执行真实控制</small></div>
+            </div>
+          </article>
+          <article class="panel-card"><div class="panel-title-row"><div><h2>客厅设备</h2><p>末端与环境状态</p></div></div><div class="room-device-list"><div><span>暖</span><strong>采暖末端</strong><em>运行 · 24.0℃</em></div><div><span>温</span><strong>温度传感器</strong><em>24.6℃</em></div><div><span>湿</span><strong>湿度传感器</strong><em>48%</em></div><div><span>联</span><strong>房间节点</strong><em>在线</em></div></div></article>
+          <article class="panel-card"><div class="panel-title-row"><div><h2>运行摘要</h2><p>房间采暖负荷</p></div></div><div class="summary-numbers"><div><span>当前功率</span><strong>1.28 kW</strong></div><div><span>今日运行</span><strong>5 h 12 min</strong></div><div><span>舒适指数</span><strong>92</strong></div></div></article>
+        </div>
+      </section>
+
+      <section class="page-view room-page" data-view="bedroom" data-room="卧室">
+        <div class="page-heading"><div><p>ROOM CONTROL</p><h1>卧室采暖</h1></div><div class="status-pill online"><span></span>已运行</div></div>
+        <div class="room-layout">
+          <article class="panel-card room-main-card"><div class="panel-title-row"><div><h2>卧室温度</h2><p>睡眠舒适监测</p></div></div><div class="room-dial-wrap"><div class="temperature-dial compact"><svg viewBox="0 0 220 190"><path class="dial-track" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/><path class="dial-progress bedroom-progress" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/></svg><div class="dial-center"><strong>23.1<span>℃</span></strong><small>当前温度</small></div></div><div class="target-control"><span>目标温度</span><div><button>−</button><strong>23.0℃</strong><button>＋</button></div><small>睡眠模式建议 20—23℃</small></div></div></article>
+          <article class="panel-card"><div class="panel-title-row"><div><h2>卧室设备</h2><p>末端与环境状态</p></div></div><div class="room-device-list"><div><span>暖</span><strong>采暖末端</strong><em>运行 · 23.0℃</em></div><div><span>温</span><strong>温度传感器</strong><em>23.1℃</em></div><div><span>湿</span><strong>湿度传感器</strong><em>46%</em></div><div><span>联</span><strong>房间节点</strong><em>在线</em></div></div></article>
+          <article class="panel-card"><div class="panel-title-row"><div><h2>运行摘要</h2><p>房间采暖负荷</p></div></div><div class="summary-numbers"><div><span>当前功率</span><strong>0.82 kW</strong></div><div><span>今日运行</span><strong>4 h 48 min</strong></div><div><span>舒适指数</span><strong>95</strong></div></div></article>
+        </div>
+      </section>
+
+      <section class="page-view room-page" data-view="kitchen" data-room="厨房">
+        <div class="page-heading"><div><p>ROOM CONTROL</p><h1>厨房采暖</h1></div><div class="status-pill standby"><span></span>低负荷</div></div>
+        <div class="room-layout">
+          <article class="panel-card room-main-card"><div class="panel-title-row"><div><h2>厨房温度</h2><p>环境状态监测</p></div></div><div class="room-dial-wrap"><div class="temperature-dial compact"><svg viewBox="0 0 220 190"><path class="dial-track" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/><path class="dial-progress kitchen-progress" d="M39 148 A82 82 0 1 1 181 148" pathLength="100"/></svg><div class="dial-center"><strong>26.3<span>℃</span></strong><small>当前温度</small></div></div><div class="target-control"><span>目标温度</span><div><button>−</button><strong>22.0℃</strong><button>＋</button></div><small>温度高于目标，采暖自动降载</small></div></div></article>
+          <article class="panel-card"><div class="panel-title-row"><div><h2>厨房设备</h2><p>末端与环境状态</p></div></div><div class="room-device-list"><div><span>暖</span><strong>采暖末端</strong><em>低负荷</em></div><div><span>温</span><strong>温度传感器</strong><em>26.3℃</em></div><div><span>湿</span><strong>湿度传感器</strong><em>52%</em></div><div><span>联</span><strong>房间节点</strong><em>在线</em></div></div></article>
+          <article class="panel-card"><div class="panel-title-row"><div><h2>运行摘要</h2><p>房间采暖负荷</p></div></div><div class="summary-numbers"><div><span>当前功率</span><strong>0.25 kW</strong></div><div><span>今日运行</span><strong>2 h 06 min</strong></div><div><span>舒适指数</span><strong>86</strong></div></div></article>
+        </div>
+      </section>
+
+      <section class="page-view" data-view="security" id="safety-panel">
+        <div class="page-heading"><div><p>SAFETY CENTER</p><h1>安防与保护</h1></div><div class="status-pill online"><span></span>全部正常</div></div>
+        <div class="security-layout">
+          <article class="panel-card security-main"><div class="panel-title-row"><div><h2>采暖安全链路</h2><p>NX-3000 关键保护状态</p></div><span class="health-score">100%</span></div><div class="safety-grid"><div><span>✓</span><strong>漏电保护</strong><small>回路监测正常</small><em>正常</em></div><div><span>✓</span><strong>过流保护</strong><small>电流处于安全区间</small><em>正常</em></div><div><span>✓</span><strong>过温保护</strong><small>管段与线圈温度正常</small><em>正常</em></div><div><span>✓</span><strong>低流量保护</strong><small>水流满足加热条件</small><em>正常</em></div><div><span>✓</span><strong>接地状态</strong><small>保护接地连接正常</small><em>正常</em></div><div><span>✓</span><strong>循环泵联锁</strong><small>加热与泵状态联锁</small><em>正常</em></div></div></article>
+          <article class="panel-card alarm-history"><div class="panel-title-row"><div><h2>告警记录</h2><p>最近 24 小时</p></div></div><div class="empty-alarm"><span>✓</span><strong>暂无异常告警</strong><small>系统已连续稳定运行 18 h 42 min</small></div></article>
+        </div>
+      </section>
+
+      <section class="page-view" data-view="settings" id="settings">
+        <div class="page-heading"><div><p>DEVICE SETTINGS</p><h1>设备信息</h1></div><div class="status-pill">展示模式</div></div>
+        <article class="panel-card settings-card"><div class="panel-title-row"><div><h2>NX-3000 家庭智能供暖终端</h2><p>产品参数与通信信息</p></div></div><div class="settings-grid"><div><span>设备型号</span><strong>NX-3000</strong></div><div><span>供电条件</span><strong>220V 单相电</strong></div><div><span>最大输入功率</span><strong>3kW</strong></div><div><span>重点适用面积</span><strong>30—50㎡</strong></div><div><span>采暖形式</span><strong>暖气片 / 地暖</strong></div><div><span>通信方式</span><strong>WiFi / 星闪</strong></div><div><span>基础策略</span><strong>自动恒温 / 分时运行</strong></div><div><span>页面状态</span><strong>模拟数据展示</strong></div></div><div class="notice-box"><strong>说明</strong><span>本网页用于项目展示和界面演示，不连接真实硬件，也不执行任何设备控制指令。</span></div></article>
+      </section>
+
+      <footer class="workspace-footer"><span>暖芯智热 · 互联网 + AI 智能家居平台</span><span>NX-3000 UI DEMO</span></footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
